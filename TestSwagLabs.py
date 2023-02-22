@@ -10,7 +10,7 @@ class TestLogin(unittest.TestCase):
     def setUp(self):
         self.browser = webdriver.Chrome(ChromeDriverManager().install())
     
-    def test_success_login(self):
+    def test_a_success_login(self):
         #steps
         driver = self.browser
         driver.get("https://www.saucedemo.com/") #buka website
@@ -26,7 +26,7 @@ class TestLogin(unittest.TestCase):
         response_data = driver.find_element(By.CLASS_NAME, "title").text
         self.assertIn('PRODUCT', response_data)
 
-    def test_failed_login_with_empty_password(self):
+    def test_b_failed_login_with_empty_password(self):
         #steps
         driver = self.browser
         driver.get("https://www.saucedemo.com/") #buka website
@@ -42,7 +42,7 @@ class TestLogin(unittest.TestCase):
         response_data = driver.find_element(By.CLASS_NAME, "error-message-container").text
         self.assertIn('Epic sadface: Password is required', response_data)
     
-    def test_failed_login_with_empty_password_and_email(self):
+    def test_c_failed_login_with_empty_password_and_email(self):
         #steps
         driver = self.browser
         driver.get("https://www.saucedemo.com/") #buka website
